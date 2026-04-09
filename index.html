@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Budgetly</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- 🔐 LOGIN -->
+<div id="authBox">
+  <h2>🔐 Login / Signup</h2>
+  <input id="authUser" placeholder="Username">
+  <input id="authPass" type="password" placeholder="Password">
+  <button onclick="signup()">Signup</button>
+  <button onclick="login()">Login</button>
+</div>
+
+<!-- 📱 APP -->
+<div id="app" style="display:none;">
+<div class="container">
+
+  <h1>Budgetly</h1>
+
+  <div class="top-bar">
+    <button onclick="toggleDark()">🌙</button>
+    <button onclick="exportExcel()">📁 Export</button>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="cards">
+    <div class="card">
+      <h3>Balance</h3>
+      <p id="balanceCard">₹0</p>
+    </div>
+    <div class="card">
+      <h3>Income</h3>
+      <p id="incomeCard">₹0</p>
+    </div>
+    <div class="card">
+      <h3>Expense</h3>
+      <p id="expenseCard">₹0</p>
+    </div>
+  </div>
+
+  <!-- BUDGET -->
+  <div class="budget-box">
+    <input id="budgetInput" type="number" placeholder="Set Monthly Budget">
+    <button onclick="setBudget()">Set</button>
+  </div>
+
+  <!-- FORM -->
+  <form id="form">
+    <input id="desc" placeholder="Description" required>
+    <input id="amount" type="number" placeholder="Amount" required>
+    <input id="date" type="date" required>
+
+    <select id="type">
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+    </select>
+
+    <select id="category">
+      <option>Food</option>
+      <option>Travel</option>
+      <option>Shopping</option>
+      <option>Salary</option>
+      <option>Other</option>
+    </select>
+
+    <button>Add</button>
+  </form>
+
+  <!-- LIST -->
+  <ul id="list"></ul>
+
+  <!-- REPORT -->
+  <h3>📊 Monthly Report</h3>
+  <div id="report"></div>
+
+  <!-- 📸 RECEIPT SCANNER -->
+  <h3>📸 Scan Receipt</h3>
+  <input type="file" id="receiptInput">
+  <button onclick="scanReceipt()">Scan</button>
+  <pre id="receiptText"></pre>
+
+  <!-- CHART -->
+  <canvas id="chart"></canvas>
+
+  <!-- AI -->
+  <h3>🤖 Insights</h3>
+  <div id="ai"></div>
+
+</div>
+</div>
+
+<!-- OCR -->
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
